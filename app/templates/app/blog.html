@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    {% extends "app/layout.html" %}
+    {% block content %}
+    <h2>{{ title }}</h2> <br />
+    {% for post in posts %}
+    <hr/>
+    <div class="">
+        <h2> {{post.title}} </h2>
+        <h4> {{post.posted}} </h4>
+        <p> {{post.description}} </p>
+        <br /><br />
+        <button style="padding: 5px 25px; background-color: #242424; font-size: 22px; border: 2px solid #E76D00;border-radius: 50px;"><a href="{% url 'blogpost' parametr=post.id %}"><b>Читать далее...</b></a></button>
+    </div>
+    {% endfor %}
+    {% endblock %}
+
+</body>
+</html>

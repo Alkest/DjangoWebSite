@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    {% extends "app/layout.html" %}
+    {% block content %}
+
+    <h2> {{post_1.title}} </h2><br />
+
+    {% if post_1.image and post_1.image.url != '/media/temp.jpg' %}
+    <img src="{{ post_1.image.url }}" alt="Картинка статьи блога" width="700" />
+    {% endif %}
+
+    <p> {{post_1.content|linebreaksbr}} </p><br />      {# вывод текста по абзацам#}
+
+    {% if user.is_authenticated %}
+        <h3>Добавить комментарий</h3>
+        <form method="POST" >{% csrf_token %} {# защита от атак CSRF#}
+        <div>
+            {{form.as_p}}
+            <br />
+            <button style="color: #E76D00;padding: 5px 25px; background-color: #242424; font-size: 22px; border: 2px solid #E76D00;border-radius: 50px;" type="submit" class="save btn btn-default" > Отправить комментарий </button>
+        </div>
+        </form>
+    {% else %}
+        <h3> Для добавления своего комментария, пожалуйста, авторизуйтесь </h3>
+    {% endif %}
+
+    {% for comment in comments %}
+        <hr/>
+        <p> Дата: {{comment.date}} </p>
+        <p> Автор: {{comment.author}} </p>
+        <p> Комментарий: {{comment.text|linebreaksbr}} </p>
+    {% endfor %}
+    <br />
+    <br />
+    <p><a href="{% url 'blog' %}"> <b>Вернуться</b> </a> </p>
+    {% endblock %}
+
+</body>
+</html>

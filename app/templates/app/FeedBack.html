@@ -1,0 +1,77 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% if form != None %}
+<h2>Оставьте отзыв</h2><br>
+<form class="otziv" method="post">
+    {% csrf_token %}
+    <label for="{{ form.login.id_for_label }}">{{ form.login.label }}:</label><br />
+    {{ form.login }}<br><br>
+    <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label><br />
+    {{ form.gender }}<br>
+    <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label><br />
+    {{ form.email }}<br><br>
+    <label for="{{ form.buy.id_for_label }}">{{ form.buy.label }}:</label><br />
+    {{ form.buy }}<br><br>
+    <label for="{{ form.sub.id_for_label }}">{{ form.sub.label }}:</label><br />
+    {{ form.sub }}<br><br>
+    <label for="{{ form.msg.id_for_label }}">{{ form.msg.label }}:</label><br />
+    {{ form.msg }}<br><br>
+    <label for="{{ form.prior.id_for_label }}">{{ form.prior.label }}:</label><br />
+    {{ form.prior }}<br><br>
+    <input id="subb" type="submit" value="Отправить" />
+</form>
+{% else %}
+<h2>Благодарим за Ваш отзыв</h2>
+<div>Вы сообщили следующую информацию:</div>
+<div>
+    <div><span>Имя: </span>{{ data.login }}</div>
+    <div><span>Пол: </span>{{ data.gender }}</div>
+    <div><span>Ваш E-mail: </span>{{ data.email }}</div>
+    <div><span>Вы уже совершали заказ у данного дилера авто? - </span>{{ data.buy }}</div>
+    <div><span>Какую оценку дилеру вы бы поставили? - </span>{{ data.sub }}</div>
+    <div><span>Текст отзыва: </span>{{ data.msg }}</div>
+    <div><span>Достаточно ли удобен сайт для пользователя? - </span>{{ data.prior }}</div>
+</div>
+{% endif %}
+
+
+
+<script>
+document.getElementById('id_login').onfocus = function(){
+    this.style.background = "chocolate";
+    this.style.color = "black";
+}
+document.getElementById('id_email').onfocus = function(){
+    this.style.background = "chocolate";
+    this.style.color = "black";
+}
+document.getElementById('id_msg').onfocus = function(){
+    this.style.background = "chocolate";
+    this.style.color = "black";
+}
+document.getElementById('id_login').onblur = function(){
+    this.style.background = "white";
+    this.style.color = "black";
+}
+document.getElementById('id_email').onblur = function(){
+    this.style.background = "white";
+    this.style.color = "black";
+}
+document.getElementById('id_msg').onblur = function(){
+    this.style.background = "white";
+    this.style.color = "black";
+}
+document.getElementById("subb").onmouseover = function() {
+    this.style.backgroundColor = "chocolate";
+    this.style.color = "black";
+}
+document.getElementById("subb").onmouseout = function() {
+    this.style.backgroundColor = "white";
+    this.style.color = "black";
+}
+</script>
+
+
+{% endblock %}

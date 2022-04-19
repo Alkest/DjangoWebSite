@@ -1,0 +1,11 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<a href ="https://www.rolf-mitsubishi.ru/" target="_blank"> <img style="width: 150px" src="{% static 'app/content/mitsubishi_logo.svg' %}" alt="Logo 1"/></a>
+<a href ="https://www.toyota.ru/" target="_blank"> <img style="width: 150px; margin-left: 30px;" src="{% static 'app/content/toyota_logo.svg' %}" alt="Logo 2"/></a>
+<a href ="https://www.bmw.ru/" target="_blank"> <img style="width: 150px; margin-left: 50px;" src="{% static 'app/content/BMW_logo.svg' %}" alt="Logo 3"/></a>
+
+{% endblock %}

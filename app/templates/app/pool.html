@@ -1,0 +1,46 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div>
+    <form class="forma" action="" method="GET">
+        <div style="width: 30%; float: left;">
+            <p style="color: #E76D00;">Имя пользователя *</p>
+            <input style="width: 300px; height: 23px; margin-left: 100px; background-color: #B3B3B3; border: 1px solid #E76D00;" type="text" name="" placeholder="Ф.И.О."></input>
+        </div>
+        <div style="width: 70%; margin-left: 30%;">
+            <p style="color: #E76D00;">Email *</p>
+            <input style="width: 200px; height: 23px; margin-left: 100px; background-color: #B3B3B3; border: 1px solid #E76D00;" type="text" name="" placeholder="example@mail.ru"></input>
+        </div>
+        <div style="width: 30%; float: left;">
+            <p style="color: #E76D00;">Тема сообщения</p>
+            <input style="width: 300px; height: 23px; margin-left: 100px; background-color: #B3B3B3; border: 1px solid #E76D00;" type="text" name=""></input>
+        </div>
+        <div style="width: 70%; margin-left: 30%;">
+            <p style="color: #E76D00;">Тематика ошибки</p>
+            <select style="height: 23px; margin-left: 100px; background-color: #B3B3B3; border: 1px solid #E76D00;">
+                <option>Ошибка 1</option>
+                <option>Ошибка 2</option>
+                <option>Ошибка 3</option>
+            </select>
+        </div>
+        <p style="color: #E76D00;">Текст сообщения *</p>
+        <input style="width: 500px; height: 100px; margin-left: 100px; background-color: #B3B3B3; border: 1px solid #E76D00;" type="text" name="" placeholder="..."></input>
+        <br>
+        <input type="submit" class="submit">
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
